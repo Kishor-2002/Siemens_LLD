@@ -1,0 +1,23 @@
+
+You need to implement the following:
+1. Order Creation
+• An order contains:
+○ OrderId
+○ CustomerName
+○ List of Items (Name, Price, Quantity)
+ 
+2. Total Calculation
+• Calculate total price of the order
+ 
+3. Discount System
+Apply discounts based on customer type:
+• Regular Customer → no discount
+• Silver Customer → 10% discount
+• Gold Customer → 20% discount
+Customer type should be extensible (new types may come later)
+ 
+4. Tax Calculation
+• Flat 5% tax applied on final discounted amount
+ 
+5. Output
+Return final payable amount
