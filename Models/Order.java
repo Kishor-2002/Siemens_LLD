@@ -37,7 +37,9 @@ public class Order {
             this.totalCost += item.price;
         }
     }
-    
+    public void calculateTax(){
+        this.totalCost = this.totalCost + (this.totalCost * 5 / 100);
+    }
     //Adding or removing Items
     public void addItems(Item item){
         this.items.add(item);

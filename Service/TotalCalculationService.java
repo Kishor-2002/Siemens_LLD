@@ -10,7 +10,8 @@ import Interview.Siemens.Models.Customer;
  *
  * @author mkish
  */
-public class DiscountingService extends ITotalCalculationService {
+public class TotalCalculationService extends ITotalCalculationService{
+
     @Override
     public void setDiscountingPercent(Customer customer) {
         if(customer.type == Customer.CustomerType.SILVER){
