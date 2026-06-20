@@ -9,7 +9,8 @@ package Interview.Siemens;
 import Interview.Siemens.Models.Item;
 import Interview.Siemens.Models.Order;
 import Interview.Siemens.Models.Customer;
-import Interview.Siemens.Service.DiscountingService;
+import Interview.Siemens.Models.Customer.CustomerType;
+import Interview.Siemens.Service.DiscountingFactory;
 import Interview.Siemens.Service.EDiscountingService;
 //import Interview.Siemens.Service.IDiscountingService;
 import java.util.ArrayList;
@@ -75,11 +76,16 @@ public class Main {
         order.calculateTotal();
         System.out.println("Total Cost : "+order.totalCost);
         
-//        EDiscountingService discount = new DiscountingService();
-DiscountingService discount = new DiscountingService();
-        System.out.println("Applying discount");
-        discount.setDiscountingPercent(customer);
-        order.totalCost = (discount.discountingPercent * order.totalCost) + order.totalCost;
+//        EDiscountingService discount = new SilverDiscountingService();
+        if(customer.type != CustomerType.DEFAULT){
+            DiscountingFactory factory = new DiscountingFactory();
+            EDiscountingService discount = factory.getDiscountingService(customer);
+            System.out.println("Applying discount");
+            discount.setDiscountingPercent(customer);
+            order.totalCost = (discount.discountingPercent * order.totalCost) + order.totalCost;
+        }
+        
+        
         //Write and call discounting logic        
         System.out.println("Total Price after discount : "+order.totalCost);
         

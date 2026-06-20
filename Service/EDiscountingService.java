@@ -13,5 +13,7 @@ import Interview.Siemens.Models.Customer;
 public abstract class EDiscountingService {
     public double discountingPercent;
     public abstract void setDiscountingPercent(Customer customer);
-    public abstract void calculateDiscountPrice();
+    public void calculateDiscountPrice(){
+        
+    }
 }
